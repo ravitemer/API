@@ -10,8 +10,8 @@ module.exports = {
 	},
 	//================================================================================
 	tabs: {
-		Home: {
-			icon: "antenna_radiowaves_left_right",
+		Collections: {
+			icon: "rectangle_fill_on_rectangle_angled_fill",
 			ptr: true,
 			navbar: {
 				right: ["plus"],
@@ -57,7 +57,7 @@ module.exports = {
 		//=======================================================
 	},
 	//================================================================================
-	avoid: ["src/tabs/Home.svelte"],
+	avoid: ["src/tabs/Collections.svelte"],
 };
 
 /** Tab 

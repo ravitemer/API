@@ -4,8 +4,8 @@ export let appName = "API Tester";
 export let userName = "ok";
 export let passWord = "pass";
 export let tabs = {
-	Home: {
-		icon: "antenna_radiowaves_left_right",
+	Collections: {
+		icon: "rectangle_fill_on_rectangle_angled_fill",
 		ptr: true,
 		navbar: {
 			right: ["plus"],

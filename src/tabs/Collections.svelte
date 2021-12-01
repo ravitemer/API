@@ -55,7 +55,7 @@
 
 <Page name={"Home"} ptr onPtrRefresh={loadNew} withSubnavbar>
 	<Navbar noHairline sliding={"false"}>
-		<NavTitle>Home</NavTitle>
+		<NavTitle>Collections</NavTitle>
 
 		<NavRight>
 			<Link>

@@ -1,5 +1,5 @@
 import {tabs, pages, modals} from "./defaults";
-import Home from "../tabs/Home.svelte";
+import Collections from "../tabs/Collections.svelte";
 import NotFoundPage from "../pages/404.svelte";
 let tabRoutes = Object.entries(tabs)
 	.slice(1)
@@ -37,8 +37,8 @@ var routes = [
 	...pageRoutes,
 	...modalRoutes,
 	{
-		path: `/Home/${tabs["Home"].routeParams ? tabs["Home"].routeParams.map((param) => ":" + param).join("/") : ""}`,
-		component: Home,
+		path: `/Collections/${tabs["Collections"].routeParams ? tabs["Collections"].routeParams.map((param) => ":" + param).join("/") : ""}`,
+		component: Collections,
 	},
 	{
 		path: "(.*)",
