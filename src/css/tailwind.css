@@ -1,0 +1,335 @@
+@tailwind base;
+
+html {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+::-webkit-scrollbar {
+	display: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+@tailwind components;
+
+.logo {
+  @apply font-bold font-serif text-2xl text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-red-600;
+}
+
+/* Your custom CSS goes here, output css file is at /public/global.css */
+.stats {
+	@apply inline-grid grid-flow-col overflow-hidden overflow-x-auto;
+}
+.stat {
+	@apply w-full inline-grid gap-x-6;
+	grid-template-columns: 1fr auto;
+	&-figure {
+		@apply col-start-2 row-start-1 row-span-3 place-self-center justify-self-end;
+	}
+	&-title {
+		@apply col-start-1 text-red-200 text-sm whitespace-nowrap;
+	}
+	&-value {
+		@apply col-start-1 text-green-200 text-xl whitespace-nowrap;
+	}
+	&-desc {
+		@apply col-start-1 whitespace-nowrap;
+	}
+	&-actions {
+		@apply col-start-1 whitespace-nowrap;
+	}
+}
+.stats.grid-flow-row {
+	@apply auto-rows-fr;
+}
+
+/*Mock up*/
+
+.mockup {
+	&-code {
+		@apply relative overflow-hidden overflow-x-auto;
+		pre[data-prefix] {
+			&:before {
+				content: attr(data-prefix);
+				@apply inline-block text-right;
+			}
+		}
+	}
+	&-window {
+		@apply relative overflow-hidden overflow-x-auto;
+		pre[data-prefix] {
+			&:before {
+				content: attr(data-prefix);
+				@apply inline-block text-right;
+			}
+		}
+	}
+}
+
+/*collapse*/
+
+.collapse {
+	@apply relative grid overflow-hidden;
+}
+.collapse-title,
+.collapse > input[type="checkbox"],
+.collapse-content {
+	@apply row-start-1 col-start-1;
+}
+.collapse > input[type="checkbox"] {
+	@apply appearance-none opacity-0;
+}
+.collapse-content {
+	@apply row-start-2 overflow-hidden;
+	max-height: 0px;
+}
+.collapse-open .collapse-content,
+.collapse:focus:not(.collapse-close) .collapse-content,
+.collapse:not(.collapse-close) input[type="checkbox"]:checked ~ .collapse-content {
+	max-height: 9000px;
+}
+/*collapse*/
+
+.progress {
+	@apply appearance-none relative overflow-hidden w-full;
+}
+
+/* Left Panel right border when it is visible by breakpoint 
+.mynavbar.navbar.theme-dark{
+     --f7-navbar-bg-color: rgba(255,255,255,0.1);
+   --f7-bars-bg-color: rgba(255,255,255,0.1);
+     --f7-bars-bg-color-rgb: 0,0,0;
+
+}
+
+.mynavbar.navbar{
+     --f7-navbar-bg-color: rgba(255,255,255,0.1);
+   --f7-bars-bg-color: rgba(255,255,255,0.1);
+     --f7-bars-bg-color-rgb: 255,255,255;
+
+}*/
+
+body {
+	position: fixed;
+}
+
+.panel-left.panel-in-breakpoint:before {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 1px;
+	background: rgba(255, 255, 255, 0.3);
+	content: "";
+	z-index: 6000;
+}
+
+/* Hide navbar link which opens left panel when it is visible by breakpoint */
+.panel-left.panel-in-breakpoint ~ .view .navbar .panel-open[data-panel="left"] {
+	display: none;
+}
+
+#calendar,
+#calendar-events {
+	height: 50%;
+	box-sizing: border-box;
+}
+#calendar .calendar {
+	height: 100%;
+}
+#calendar-events ul {
+	height: 100%;
+	overflow: auto;
+}
+#calendar-events .event-color {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 8px;
+	height: 100%;
+}
+/*@media (orientation: landscape) {
+  #calendar {
+    float: left;
+  }
+  #calendar,
+  #calendar-events {
+    height: 100%;
+  }
+  #calendar,
+  #calendar-events {
+    width: 50%;
+  }
+  #calendar-events {
+    margin-left: 50% !important;
+    border-left: 1px solid #eee;
+  }
+  .theme-dark #calendar-events {
+    border-left-color: #282828;
+  }
+}*/
+
+/*
+  Extra borders for main view and left panel for iOS theme when it behaves as panel (before breakpoint size)
+*/
+.ios .panel-left:not(.panel-in-breakpoint).panel-in ~ .view-main:before,
+.ios .panel-left:not(.panel-in-breakpoint).panel-closing ~ .view-main:before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 1px;
+	background: rgba(0, 0, 0, 0.1);
+	content: "";
+	z-index: 6000;
+}
+
+/* Invert navigation bars to fill style */
+/*:root {
+   --f7-theme-color: #ff3b30;
+  --f7-theme-color-rgb: 255, 59, 48;
+  --f7-theme-color-shade: #ff1407;
+  --f7-theme-color-tint: #ff6259;
+}*/
+
+/*Settings*/
+
+.demo-theme-picker {
+	cursor: pointer;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-sizing: border-box;
+	position: relative;
+}
+.demo-theme-picker .checkbox {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+}
+.demo-color-picker-button {
+	margin-bottom: 1em;
+	text-transform: capitalize;
+}
+.demo-bars-picker {
+	height: 200px;
+	border-radius: 10px;
+	box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	background: var(--f7-page-bg-color);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.demo-bars-picker .checkbox {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+}
+
+.demo-bars-picker .demo-navbar {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 30px;
+	top: 0;
+	border-bottom: 1px solid transparent;
+}
+.demo-bars-picker .demo-navbar:before {
+	content: "";
+	position: absolute;
+	left: 10px;
+	width: 20px;
+	height: 10px;
+	top: 50%;
+	margin-top: -5px;
+}
+.demo-bars-picker .demo-navbar:after {
+	content: "";
+	position: absolute;
+	right: 10px;
+	width: 20px;
+	height: 10px;
+	top: 50%;
+	margin-top: -5px;
+}
+.demo-bars-picker-empty .demo-navbar {
+	background: #f7f7f8;
+	border-color: rgba(0, 0, 0, 0.1);
+}
+.theme-dark .demo-bars-picker-empty .demo-navbar {
+	background: #1b1b1b;
+	border-color: #282829;
+}
+.demo-bars-picker-empty .demo-navbar:before,
+.demo-bars-picker-empty .demo-navbar:after {
+	background: var(--f7-theme-color);
+}
+.demo-bars-picker-fill .demo-navbar {
+	background: var(--f7-theme-color);
+}
+.demo-bars-picker-fill .demo-navbar:before,
+.demo-bars-picker-fill .demo-navbar:after {
+	background: #fff;
+}
+
+:root {
+   --f7-bars-translucent-opacity: 1;
+  --f7-bars-translucent-blur: 20px;
+}
+/*:root,
+:root.theme-dark,
+:root .theme-dark {
+  --f7-bars-bg-color: var(--f7-theme-color);
+  --f7-bars-bg-color-rgb: var(--f7-theme-color-rgb);
+  --f7-bars-translucent-opacity: 0.9;
+--f7-bars-text-color: #fff;
+
+  --f7-bars-link-color: #fff;
+  --f7-navbar-subtitle-text-color: rgba(255,255,255,0.85);
+  --f7-bars-border-color: transparent;
+  --f7-tabbar-link-active-color: #fff;
+  --f7-tabbar-link-inactive-color: rgba(255,255,255,0.54);
+  --f7-sheet-border-color: transparent;
+  --f7-tabbar-link-active-border-color: #fff;
+}
+.appbar,
+.navbar,
+.toolbar,
+.subnavbar,
+.calendar-header,
+.calendar-footer {
+  --f7-touch-ripple-color: var(--f7-touch-ripple-white);
+  --f7-link-highlight-color: var(--f7-link-highlight-white);
+  --f7-link-touch-ripple-color: var(--f7-touch-ripple-white);
+  --f7-button-text-color: #fff;
+  --f7-button-pressed-bg-color: rgba(255,255,255,0.1);
+}
+.navbar-large-transparent {
+  --f7-navbar-large-title-text-color: #fff;
+
+  --r: 255;
+  --g: 59;
+  --b: 48;
+  --progress: var(--f7-navbar-large-collapse-progress);
+  --f7-bars-link-color: rgb(
+    calc(var(--r) + (255 - var(--r)) * var(--progress)),
+    calc(var(--g) + (255 - var(--g)) * var(--progress)),
+    calc(var(--b) + (255 - var(--b)) * var(--progress))
+  );
+}
+.theme-dark .navbar-large-transparent {
+  --f7-navbar-large-title-text-color: #fff;
+}*/
+
+@tailwind utilities;

@@ -1,0 +1,39 @@
+type User {
+  username : String!
+  email : String!
+  }
+
+input CreateUserInput {
+  username : String!
+  email : String!
+  password : String!
+  
+ }
+
+input LoginUserInput {
+ email: String!
+ password: String!
+}
+
+input LogoutInput {
+ allTokens: Boolean
+}
+
+type AuthPayload {
+  token : String!
+  user : User!
+  
+  }
+
+
+type Mutation {
+  signup(data : CreateUserInput) : User @resolver(name: "signup")
+  signin(data : LoginUserInput) : AuthPayload! @resolver(name: "signin")
+  signout(data : LogoutInput) : Boolean @resolver(name: "signout")
+  
+  }
+
+type Query{
+  allUsers : [User!]
+  
+  }
