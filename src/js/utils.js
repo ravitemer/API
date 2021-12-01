@@ -9,13 +9,13 @@ import listinput from "../components/input_listinput.svelte";
 export let stylesheet = document.createElement("style");
 //================================================================================
 
-export async function copy(text) {
-	await navigator.clipboard.writeText(text);
-	return text;
+export async function copy(text){
+  await navigator.clipboard.writeText(text);
+  return text
 }
 
-export async function paste() {
-	return await navigator.clipboard.readText();
+export async function paste(){
+  return (await navigator.clipboard.readText())
 }
 
 //================================================================================
@@ -28,29 +28,29 @@ export function getDate(value) {
 }
 //================================================================================
 
-export function group(array, property) {
-	let unique = {};
-	let group = {};
-	for (let obj of array) {
-		unique[obj[property]] = {};
-	}
-	for (let key in unique) {
-		group[key] = array.filter((obj) => obj[property] == key);
-	}
-	return group;
+export function group(array,property){
+  let unique = {}   
+  let group = {}
+  for (let obj of array) {
+			unique[obj[property]] = {};
+		}
+  for (let key in unique) {
+			group[key] = array.filter((obj) => obj[property] == key);
+		}
+		return group;
 }
 
 export function groupBy(pages, property) {
-	let groupedObj = {};
-	let uniqueObj = {};
-	for (let page of pages) {
-		uniqueObj[page.properties[property].value] = {};
+		let groupedObj = {};
+		let uniqueObj = {};
+		for (let page of pages) {
+			uniqueObj[page.properties[property].value] = {};
+		}
+		for (let key in uniqueObj) {
+			groupedObj[key] = pages.filter((page) => page.properties[property].value == key);
+		}
+		return groupedObj;
 	}
-	for (let key in uniqueObj) {
-		groupedObj[key] = pages.filter((page) => page.properties[property].value == key);
-	}
-	return groupedObj;
-}
 
 //================================================================================
 let propsMap = {
@@ -70,31 +70,32 @@ export function getInput(type) {
 }
 //================================================================================
 
+
 export const inputs = {
-	title: {type: "text", media: "textbox"},
-	rich_text: {type: "textarea", media: "text_quote"},
+		title: {type: "text", media: "textbox"},
+		rich_text: {type: "textarea", media: "text_quote"},
 
-	url: {type: "url", media: "link"},
-	phone_number: {type: "tel", media: "phone_fill"},
+		url: {type: "url", media: "link"},
+		phone_number: {type: "tel", media: "phone_fill"},
 
-	multi_select: {type: "select", media: "list_dash"},
-	date: {type: "datepicker", media: "calendar_today"},
+		multi_select: {type: "select", media: "list_dash"},
+		date: {type: "datepicker", media: "calendar_today"},
 
-	number: {type: "number", media: "number"},
+		number: {type: "number", media: "number"},
 
-	rollup: {type: "text", media: "search"},
+		rollup: {type: "text", media: "search"},
 
-	select: {type: "select", media: "chevron_down_square_fill"},
+		select: {type: "select", media: "chevron_down_square_fill"},
 
-	files: {type: "file", media: "photo_on_rectangle"},
+		files: {type: "file", media: "photo_on_rectangle"},
 
-	people: {type: "select", media: "person_2_fill"},
-	relation: {type: "select", media: "arrow_up_right"},
-	checkbox: {type: "checkbox", media: "checkmark_rectangle"},
-	email: {type: "email", media: "at"},
-	formula: {type: "text", media: "sum"},
-	undefined: {type: "textarea", media: "noicon"},
-};
+		people: {type: "select", media: "person_2_fill"},
+		relation: {type: "select", media: "arrow_up_right"},
+		checkbox: {type: "checkbox", media: "checkmark_rectangle"},
+		email: {type: "email", media: "at"},
+		formula: {type: "text", media: "sum"},
+		undefined: {type: "textarea", media: "noicon"},
+	};
 //================================================================================
 function generateStylesheet(customColor = "", barsStyle = "empty") {
 	let styles = "";
@@ -203,12 +204,13 @@ export async function load() {
 	} else {
 		// if first time , saved default styles and save them
 		styles = {
-			layoutTheme: "dark",
-			colorTheme: "pink",
-			barsStyle: "empty",
-			customColor: "",
-		};
+  "layoutTheme": "light",
+  "colorTheme": "pink",
+  "barsStyle": "empty",
+  "customColor": ""
+}
 		loadStyles(styles);
 		await localForage.setItem("styles", styles);
 	}
 }
+

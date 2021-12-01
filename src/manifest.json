@@ -1,7 +1,7 @@
 {
-  "name": "Copilot",
-  "short_name": "Copilot",
-  "description": "Copilot",
+  "name": "API Tester",
+  "short_name": "API Tester",
+  "description": "API Tester",
   "lang": "en-US",
   "start_url": "/",
   "display": "standalone", 

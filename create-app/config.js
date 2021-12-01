@@ -1,72 +1,24 @@
 module.exports = {
-	appName: "Copilot",
+	appName: "API Tester",
 	userName: "ok",
 	passWord: "pass",
 	styles: {
-		layoutTheme: "dark",
+		layoutTheme: "light",
 		colorTheme: "pink",
 		barsStyle: "empty",
 		customColor: "",
 	},
 	//================================================================================
 	tabs: {
-		Copilot: {
-			icon: "logo_github",
+		 Home : {
+			icon: "antenna_radiowaves_left_right",
 			ptr: true,
 			navbar: {
 				right: ["plus"],
 			},
 
 			body: {
-				fab: null /*[
-				/*{
-					title: "Card",
-					icon: "airplane",
-				},
-				{
-					title: "Text",
-					icon: "paragraph",
-				},
-			],*/,
 				list: {},
-			},
-		},
-		Icons: {
-			icon: "paintbrush_fill",
-			ptr: false,
-			navbar: {
-				Subnavbar: {
-					search: true,
-				},
-			},
-
-			body: {
-				fab: null /*[
-				/*{
-					title: "Card",
-					icon: "airplane",
-				},
-				{
-					title: "Text",
-					icon: "paragraph",
-				},
-			],*/,
-				list: {},
-			},
-		},
-		WebApis: {
-			icon: "command",
-			navbar: {
-				logo: true,
-			},
-			body: {
-				list: {},
-			},
-		},
-		Test: {
-			icon: "infinite",
-			navbar: {
-				right: ["arrow_down", "ellipsis"],
 			},
 		},
 	},
@@ -74,40 +26,8 @@ module.exports = {
 		icon: "gear",
 		isTemplate: true,
 	},
-	blogTab: {
-		icon: "doc_richtext",
-		isTemplate: true,
-	},
 	//================================================================================
 	pages: {
-		test: {
-			icon: "cool",
-		},
-		blogDetail: {
-			routeParams: ["id", "title"],
-		},
-		linksDetail: {
-			ptr: false,
-			navbar: {
-				Subnavbar: {
-					search: true,
-				},
-			},
-
-			body: {
-				fab: null /*[
-				/*{
-					title: "Card",
-					icon: "airplane",
-				},
-				{
-					title: "Text",
-					icon: "paragraph",
-				},
-			],*/,
-				list: {},
-			},
-		},
 	},
 	//================================================================================
 	modals: {},
@@ -135,7 +55,7 @@ module.exports = {
 		//=======================================================
 	},
 	//================================================================================
-	avoid: ["src/pages/linksDetail.svelte", "src/tabs/Icons.svelte", "src/tabs/Copilot.svelte", "src/js/store.js", "src/tabs/Test.svelte", "src/tabs/WebApis.svelte"],
+	avoid: ["src/pages/linksDetail.svelte"],
 };
 
 /** Tab 
