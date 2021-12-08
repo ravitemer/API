@@ -29,7 +29,7 @@ class NeoSDK {
 	//================================================================================
 	async getNodesByLabel({label, groupBy}) {
 		try {
-			return (await axios.request({url: `/neo/all-nodes`, method: "GET", baseURL: this.url, params: {label, groupBy : groupBy}})).data;
+			return (await axios.request({url: `/neo/label`, method: "GET", baseURL: this.url, params: {name : label, groupBy : groupBy}})).data;
 		} catch (e) {
 			console.log(e.message);
 			throw new Error(e);
