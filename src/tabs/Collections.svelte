@@ -41,16 +41,7 @@
 	async function dataFetch(cache = true) {
 		loading = true;
 		//const data = await snippet.getAll();
-		var myHeaders = new Headers();
-myHeaders.append("Cookie", "sails.sid=s%3Aa6ZDOvZEeQOL1UDQ1XywsaJB0BIlHYu-.UgftRtg8BvizdeqSw1RQkhHMT4nP8Fx9MjfwI9CP95I");
-
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
-
-fetch("https://fullrav.herokuapp.com/neo/label?name=Snippet&groupBy=lang", requestOptions)
+fetch("https://fullrav.herokuapp.com/neo/label?name=Snippet&groupBy=lang")
   .then(response => response.text())
   .then(result => data = result)
   .catch(error => console.log('error', error));
