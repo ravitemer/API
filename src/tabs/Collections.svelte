@@ -20,6 +20,7 @@
 		} catch (err) {
 			loading = false;
 			f7.emit("error", err.message);
+			console.log(err)
 			throw new Error(err.message);
 		}
 	}
@@ -33,6 +34,7 @@
 			done();
 			loading = false;
 			f7.emit("error", err.message);
+			console.log(err)
 			throw new Error(err.message);
 		}
 	}
