@@ -39,7 +39,7 @@
 	async function dataFetch(cache = true) {
 		loading = true;
 		//const data = await snippet.getAll();
-		const data =  (await axios.request({url: `/neo/all-nodes`, method: "GET", baseURL: "https://fullrav.herokuapp.com", params: {label : "Snippet"}})).data;
+		const data =  (await axios.request({url: `/neo/label`, method: "GET", baseURL: "https://fullrav.herokuapp.com", params: {name : "Snippet"}})).data;
 		loading = false;
 		return data;
 	}
