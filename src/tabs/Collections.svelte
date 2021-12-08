@@ -47,7 +47,7 @@ var config = {
   headers: { }
 };
 
-const data = (await axios(config)).data
+const data = (await axios.request(config)).data
 loading = false;
 return data;
 
