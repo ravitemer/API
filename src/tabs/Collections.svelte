@@ -4,12 +4,12 @@
 
 	import * as localForage from "localforage";
 	import {debugMode} from "../js/store";
-	import {Snippets} from "../api";
+	import {Snippet} from "../api";
 	//import {getDate} from "../js/utils.js";
 
 	let data = {};
 	let loading = false;
-	let snippets = new Snippets();
+	let snippet = new Snippet();
 	let searchBarValue = "";
 
 	async function load() {
@@ -37,7 +37,7 @@
 	}
 	async function dataFetch(cache = true) {
 		loading = true;
-		const data = await snippets.getRoutes({cache, storeName : "#snippetsRoutes"});
+		const data = await snippet.getAll();
 		loading = false;
 		return data;
 	}
@@ -76,17 +76,16 @@
 			</div>
 		</Block>
 	{:then value}
-		{#if $debugMode}
-			value : {JSON.stringify(value, null, 2)}
-		{/if}
+		
+			value : {JSON.stringify(data, null, 2)}
 
-		<List>
+		<!--List>
 			{#each Object.entries(data) as [key, value], i (i)}
 				<ListItem>
 					{key}
 				</ListItem>
 			{/each}
-		</List>
+		</List-->
 	{:catch err}
 		<p class="text-center p-8 text-xl text-red-500 font-semibold font-mono">{err}</p>
 	{/await}
