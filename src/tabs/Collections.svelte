@@ -42,7 +42,7 @@
 		loading = true;
 		//const data = await snippet.getAll();
 fetch("https://fullrav.herokuapp.com/neo/label?name=Snippet&groupBy=lang")
-  .then(response => response.text())
+  .then(response => response.json())
   .then(result => data = result)
   .catch(error => console.log('error at fetch', error.message));
 		loading = false;
