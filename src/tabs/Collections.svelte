@@ -76,8 +76,7 @@
 			</div>
 		</Block>
 	{:then value}
-		
-			value : {JSON.stringify(data, null, 2)}
+		value : {JSON.stringify(data, null, 2)}
 
 		<!--List>
 			{#each Object.entries(data) as [key, value], i (i)}
