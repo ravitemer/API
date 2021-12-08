@@ -41,7 +41,19 @@
 	async function dataFetch(cache = true) {
 		loading = true;
 		//const data = await snippet.getAll();
-		const data =  (await axios.request({url: `/neo/label`, method: "GET", baseURL: "https://fullrav.herokuapp.com", params: {name : "Snippet"}})).data;
+		var myHeaders = new Headers();
+myHeaders.append("Cookie", "sails.sid=s%3Aa6ZDOvZEeQOL1UDQ1XywsaJB0BIlHYu-.UgftRtg8BvizdeqSw1RQkhHMT4nP8Fx9MjfwI9CP95I");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://fullrav.herokuapp.com/neo/label?name=Snippet&groupBy=lang", requestOptions)
+  .then(response => response.text())
+  .then(result => data = result)
+  .catch(error => console.log('error', error));
 		loading = false;
 		return data;
 	}
