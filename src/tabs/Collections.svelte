@@ -41,12 +41,17 @@
 	async function dataFetch(cache = true) {
 		loading = true;
 		//const data = await snippet.getAll();
-fetch("https://fullrav.herokuapp.com/neo/label?name=Snippet&groupBy=lang")
-  .then(response => response.json())
-  .then(result => data = result)
-  .catch(error => console.log('error at fetch', error.message));
-		loading = false;
-		return data;
+var config = {
+  method: 'get',
+  url: 'https://fullrav.herokuapp.com/neo/all-nodes',
+  headers: { }
+};
+
+const data = (await axios(config)).data
+loading = false;
+return data;
+
+		
 	}
 	async function onSearchBarChange(e) {
 		//searchBarValue = e.detail.value
