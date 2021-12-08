@@ -2,18 +2,8 @@ import * as localForage from "localforage";
 
 import * as axios from "axios";
 
-export class Snippet extends NeoSDK {
-	constructor() {
-		super({});
-	}
-
-	async getAll() {
-		return await this.getNodesByLabel({label: "Snippet"});
-	}
-}
-
 class NeoSDK {
-	constructor({url = "https://fullrav.herokuapp.com", token = "AIzaSyBhQRUK8k48eGrNNlj4iOk7MM78-sCh_nQ"}) {
+	constructor({url = "https://fullrav.herokuapp.com", token = "AIzaSyBhQRUK8k48eGrNNlj4iOk7MM78-sCh_nQ"}={}) {
 		this.url = url;
 		this.token = token;
 	}
@@ -36,4 +26,13 @@ class NeoSDK {
 		}
 	}
 	//================================================================================
+}
+export class Snippet extends NeoSDK {
+	constructor() {
+		super();
+	}
+
+	async getAll() {
+		return await this.getNodesByLabel({label: "Snippet"});
+	}
 }

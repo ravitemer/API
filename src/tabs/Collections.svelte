@@ -4,13 +4,14 @@
 
 	import * as localForage from "localforage";
 	import {debugMode} from "../js/store";
-	//import {Snippet} from "../api";
+	import {Snippet} from "../api";
 	//import {getDate} from "../js/utils.js";
 	import * as axios from "axios";
 
 	let data = {};
 	let loading = false;
-	//let snippet = new Snippet();
+	let snippet = new Snippet();
+	let snippets = []
 	let searchBarValue = "";
 
 	async function load() {
@@ -41,13 +42,15 @@
 	async function dataFetch(cache = true) {
 		loading = true;
 		//const data = await snippet.getAll();
-var config = {
+/*var config = {
   method: 'get',
   url: 'https://fullrav.herokuapp.com/neo/all-nodes',
   headers: { }
 };
 
-const data = (await axios.request(config)).data
+const data = (await axios.request(config)).data*/
+const data = await snippet.getAll()
+
 loading = false;
 return data;
 
