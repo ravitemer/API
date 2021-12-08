@@ -44,7 +44,7 @@
 fetch("https://fullrav.herokuapp.com/neo/label?name=Snippet&groupBy=lang")
   .then(response => response.text())
   .then(result => data = result)
-  .catch(error => console.log('error', error));
+  .catch(error => console.log('error at fetch', error.message));
 		loading = false;
 		return data;
 	}
