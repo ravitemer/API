@@ -4,7 +4,7 @@
 
 	import * as localForage from "localforage";
 	import {debugMode} from "../js/store";
-	import {Snippet} from "../api";
+	//import {Snippet} from "../api";
 	//import {getDate} from "../js/utils.js";
 	import * as axios from "axios";
 
