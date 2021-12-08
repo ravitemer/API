@@ -6,10 +6,11 @@
 	import {debugMode} from "../js/store";
 	import {Snippet} from "../api";
 	//import {getDate} from "../js/utils.js";
+	import * as axios from "axios";
 
 	let data = {};
 	let loading = false;
-	let snippet = new Snippet();
+	//let snippet = new Snippet();
 	let searchBarValue = "";
 
 	async function load() {
@@ -37,7 +38,8 @@
 	}
 	async function dataFetch(cache = true) {
 		loading = true;
-		const data = await snippet.getAll();
+		//const data = await snippet.getAll();
+		const data =  (await axios.request({url: `/neo/all-nodes`, method: "GET", baseURL: "https://fullrav.herokuapp.com", params: {label : "Snippet"}})).data;
 		loading = false;
 		return data;
 	}
