@@ -49,8 +49,8 @@
 };
 
 const data = (await axios.request(config)).data*/
-const data = await snippet.getAll()
-
+// const data = await snippet.getAll()
+const data = "hello"
 loading = false;
 return data;
 
@@ -79,9 +79,9 @@ return data;
 			</Link>
 		</NavRight>
 
-		<Subnavbar>
+		<!-- <Subnavbar>
 			<Searchbar bind:value={searchBarValue} on:change={onSearchBarChange} customSearch />
-		</Subnavbar>
+		</Subnavbar> -->
 	</Navbar>
 
 	{#await load()}
@@ -91,7 +91,11 @@ return data;
 			</div>
 		</Block>
 	{:then value}
-		value : {JSON.stringify(data, null, 2)}
+		 <div class='HStack'>
+			 <h1 class="Rect">Hello</h1>
+			 <h1 class="Rect">Hello</h1>
+			 <h1 class="Rect">Hello</h1>
+		 </div>
 
 		<!--List>
 			{#each Object.entries(data) as [key, value], i (i)}
@@ -104,3 +108,11 @@ return data;
 		<p class="text-center p-8 text-xl text-red-500 font-semibold font-mono">{err}</p>
 	{/await}
 </Page>
+<style lang="postcss">
+	.HStack {
+	@apply flex gap-4 overflow-x-scroll;
+	}
+	.Rect {
+	@apply w-32 h-32 rounded-md bg-gray-400;
+	}
+</style>

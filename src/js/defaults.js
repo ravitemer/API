@@ -17,10 +17,6 @@ export let tabs = {
 			list: {},
 		},
 	},
-	Settings: {
-		icon: "gear",
-		isTemplate: true,
-	},
 };
 export let pages = {
 	404: {

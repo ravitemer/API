@@ -26,28 +26,28 @@ Framework7.use(Framework7Svelte);
 
 try {
 	Framework7.use(customEvents);
-	Framework7.use(debugPlugin);
+	// Framework7.use(debugPlugin);
 
-	Framework7.use(screen);
+//	Framework7.use(screen);
 
-	Framework7.use([ClipboardPlugin, OrientationPlugin, ContactsPlugin, GeolocationPlugin, SharePlugin, AudioPlugin, SpeechSynthesisPlugin]);
+	//Framework7.use([ClipboardPlugin, OrientationPlugin, ContactsPlugin, GeolocationPlugin, SharePlugin, AudioPlugin, SpeechSynthesisPlugin]);
 } catch (err) {
 	console.log(err.message);
 }
 var app;
 import {load} from "./utils.js";
 load().then(async () => {
-	if (Framework7.Screen) {
-		let USERNAME = await localForage.getItem("VITE_USERNAME");
-		let PASSWORD = await localForage.getItem("VITE_PASSWORD");
-		if (USERNAME !== userName || PASSWORD !== passWord) {
-			let screen = new Framework7.Screen();
-			screen.open();
-		}
-	}
+	// if (Framework7.Screen) {
+	// 	let USERNAME = await localForage.getItem("VITE_USERNAME");
+	// 	let PASSWORD = await localForage.getItem("VITE_PASSWORD");
+	// 	if (USERNAME !== userName || PASSWORD !== passWord) {
+	// 		let screen = new Framework7.Screen();
+	// 		screen.open();
+	// 	}
+	// }
 	app = new App({
 		target: document.getElementById("app"),
 	});
-	window.app = app;
-	window.F7Class = Framework7;
+//	window.app = app;
+	//window.F7Class = Framework7;
 });
